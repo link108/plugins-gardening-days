@@ -1,0 +1,27 @@
+      gate:     # is the contents of ~/.hal/default/profiles/gate.yml
+        spinnaker:
+          extensibility:
+            deck-proxy:
+              enabled: true
+              plugins:
+                Armory.RandomWaitPlugin:
+                  enabled: true
+                  version: 1.1.14
+            repositories:
+              example-repo:
+                url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/repositories.json
+      orca:     # is the contents of ~/.hal/default/profiles/orca.yml
+        spinnaker:
+          extensibility:
+            plugins:
+              Armory.RandomWaitPlugin:
+                enabled: true
+                version: 1.1.14
+                extensions:
+                  armory.randomWaitStage:
+                    enabled: true
+                    config:
+                      defaultMaxWaitTime: 60
+            repositories:
+              example-repo:
+                url: https://raw.githubusercontent.com/spinnaker-plugin-examples/examplePluginRepository/master/repositories.json
